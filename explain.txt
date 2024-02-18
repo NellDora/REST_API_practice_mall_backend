@@ -1,0 +1,20 @@
+페이징과 정렬
+
+스프링 데이터 JPA는 쿼리 메소드에 페이징고 ㅏ정렬 기능을 사용할 수 있도록 2가지 특별한 파라미터를 제공함
+- org.springframework.data.domain.Sort : 정렬 기능
+- org.springframework.data.domain.Pageable : 페이징 기능 (내부에 Sort) 포함
+
+
+
+-----------------------------------------------------
+QueryDslRepositorySupport
+QueryDSL 모든 기능을 사용하기 위해 JPAQuery 객체를 직접 생성해서 사용
+
+
+
+
+---------------------------------------------------------
+CORS 설정
+ - API 서버는 외부에서 호출해서 사용하는 서버
+ - 외부에서 AJAX를 사용해서 호출했을 때 사용 할 수 있도록 해줌
+ -

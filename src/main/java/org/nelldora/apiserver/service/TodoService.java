@@ -2,6 +2,8 @@ package org.nelldora.apiserver.service;
 
 import jakarta.transaction.Transactional;
 import org.nelldora.apiserver.domain.Todo;
+import org.nelldora.apiserver.dto.PageRequestDTO;
+import org.nelldora.apiserver.dto.PageResponseDTO;
 import org.nelldora.apiserver.dto.TodoDTO;
 
 @Transactional
@@ -14,6 +16,8 @@ public interface TodoService {
     void modify(TodoDTO dto);
 
     void remove(Long tno);
+
+    PageResponseDTO<TodoDTO> getList(PageRequestDTO pageRequestDTO);
 
     default TodoDTO entityToDTO(Todo todo){
         return TodoDTO.builder()
@@ -29,7 +33,6 @@ public interface TodoService {
     default Todo dtoToEntity(TodoDTO todoDTO){
 
         return Todo.builder()
-                .tno(todoDTO.getTno())
                 .title(todoDTO.getTitle())
                 .content(todoDTO.getContent())
                 .complete(todoDTO.isComplete())

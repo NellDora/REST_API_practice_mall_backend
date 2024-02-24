@@ -14,7 +14,7 @@ import java.time.LocalDate;
 public class Todo {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)//키 생성 전략
+    @GeneratedValue(strategy = GenerationType.IDENTITY)//키 생성 전략
     private Long tno;
 
     @Column(length = 500, nullable = false)

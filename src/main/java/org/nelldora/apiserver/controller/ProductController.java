@@ -4,9 +4,9 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.nelldora.apiserver.dto.ProductDTO;
 import org.nelldora.apiserver.util.CustomFileUtil;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.core.io.Resource;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
@@ -33,6 +33,13 @@ public class ProductController {
 
         return Map.of("RESULT","SUCCESS");
 
+    }
+
+    @GetMapping("/view/{fileName}")
+    public ResponseEntity<Resource> viewFileGet(@PathVariable("fileName") String fileName){
+
+        log.info("Controller : fileName : "+ fileName);
+        return fileUtil.getFile(fileName);
     }
 
 }
